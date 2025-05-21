@@ -1,0 +1,8 @@
+{
+    "supported-targets": [
+        "native"
+    ],
+    "native-stub": [
+        "contains_char.c"
+    ]
+}

@@ -1,0 +1,11 @@
+target/
+.mooncakes/
+.idea/
+.vscode/
+.venv/
+.cache/
+build/
+cmake-build-debug/
+cmake-build-release/
+
+

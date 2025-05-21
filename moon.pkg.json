@@ -1,0 +1,11 @@
+{
+    "supported-targets": [
+        "native"
+    ],
+    "import": [
+        {
+            "path": "MINGtoMING/simdstring/scalar",
+            "alias": "internel"
+        }
+    ]
+}

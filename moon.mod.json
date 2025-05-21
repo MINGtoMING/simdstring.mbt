@@ -1,0 +1,21 @@
+{
+  "name": "MINGtoMING/simdstring",
+  "version": "0.1.0",
+  "deps": {
+    "kesmeey/fmt": "0.1.9"
+  },
+  "readme": "README.md",
+  "repository": "https://github.com/MINGtoMING/simdstring.mbt.git",
+  "license": "MIT",
+  "keywords": [
+    "string",
+    "utilities",
+    "native",
+    "simd",
+    "fast"
+  ],
+  "description": "SIMD-accelerated string utilities for Moonbit native backend",
+  "scripts": {
+    "postadd": "python ./scripts/configure.py"
+  }
+}

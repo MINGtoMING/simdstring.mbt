@@ -4,6 +4,7 @@
     ],
     "native-stub": [
         "contains_char.c",
-        "has_prefix.c"
+        "has_prefix.c",
+        "has_suffix.c"
     ]
 }

@@ -15,7 +15,7 @@
 *Run benchmark:*
 
 ```shell
-moon run ./bench/contains_char --release --target native
+moon run ./src/bench/contains_char --release --target native
 ```
 
 ## 🛠️ Installation
@@ -30,7 +30,6 @@ Then include in your `moon.pkg.json`:
 
 ```json
 {
-  "is-main": true,
   "import": [
     "MINGtoMING/simdstring"
   ]
@@ -47,7 +46,7 @@ Then include in your `moon.pkg.json`:
 | `contains`      | ⏳    | ⏳      | ⏳      |
 | `find`          | ⏳    | ⏳      | ⏳      |
 | `has_prefix`    | ✅    | ✅      | ✅      |
-| `ends_with`     | ⏳    | ⏳      | ⏳      |
+| `has_suffix`    | ✅    | ✅      | ✅      |
 | `to_upper`      | ⏳    | ⏳      | ⏳      |
 | `to_lower`      | ⏳    | ⏳      | ⏳      |
 

@@ -1,0 +1,15 @@
+{
+    "is-main": true,
+    "import": [
+        "MINGtoMING/simdstring/internal/avx2",
+        "MINGtoMING/simdstring/internal/sse4_2",
+        "MINGtoMING/simdstring/internal/scalar",
+        "kesmeey/fmt"
+    ],
+    "link": {
+        "native": {
+            "cc": "gcc",
+            "cc-flags": "-O3 -march=native -flto"
+        }
+    }
+}

@@ -1,4 +1,4 @@
-package "MINGtoMING/simdstring/avx2"
+package "MINGtoMING/simdstring/internal/scalar"
 
 import(
   "moonbitlang/core/string"

@@ -1,2 +1,2 @@
 ///|
-pub fnalias @internel.contains_char
+pub fnalias @internal.contains_char

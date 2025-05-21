@@ -62,8 +62,8 @@ def update_config(config_path: str, instruction: str):
     with open(config_path, "w") as f:
         config["import"] = [
             {
-                "path": f"MINGtoMING/simdstring/{instruction}",
-                "alias": "internel",
+                "path": f"MINGtoMING/simdstring/internal/{instruction}",
+                "alias": "internal",
             }
         ]
         json.dump(config, f, indent=4)

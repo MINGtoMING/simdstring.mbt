@@ -4,8 +4,8 @@
     ],
     "import": [
         {
-            "path": "MINGtoMING/simdstring/scalar",
-            "alias": "internel"
+            "path": "MINGtoMING/simdstring/internal/scalar",
+            "alias": "internal"
         }
     ]
 }

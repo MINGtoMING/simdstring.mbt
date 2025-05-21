@@ -1,9 +1,9 @@
 {
     "is-main": true,
     "import": [
-        "MINGtoMING/simdstring/avx2",
-        "MINGtoMING/simdstring/sse4_2",
-        "MINGtoMING/simdstring/scalar",
+        "MINGtoMING/simdstring/internal/avx2",
+        "MINGtoMING/simdstring/internal/sse4_2",
+        "MINGtoMING/simdstring/internal/scalar",
         "kesmeey/fmt"
     ],
     "link": {

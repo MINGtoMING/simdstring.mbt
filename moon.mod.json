@@ -1,6 +1,6 @@
 {
   "name": "MINGtoMING/simdstring",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "deps": {
     "kesmeey/fmt": "0.1.9"
   },

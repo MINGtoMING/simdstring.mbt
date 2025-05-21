@@ -15,6 +15,7 @@
     "fast"
   ],
   "description": "SIMD-accelerated string utilities for Moonbit native backend",
+  "source": "src",
   "scripts": {
     "postadd": "python scripts/configure.py"
   }

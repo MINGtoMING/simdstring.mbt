@@ -1,10 +1,9 @@
+import json
 import platform
 import subprocess
-import json
-import os
 
 
-def get_intruction_list():
+def get_instruction_list():
     os_type = platform.system().lower()
     arch = platform.machine().lower()
     flags = []
@@ -70,13 +69,13 @@ def update_config(config_path: str, instruction: str):
 
 
 def main():
-    instruction_list = get_intruction_list()
+    instruction_list = get_instruction_list()
     if "avx2" in instruction_list:
-        update_config("moon.pkg.json", "avx2")
+        update_config("src/moon.pkg.json", "avx2")
     elif "sse4_2" in instruction_list:
-        update_config("moon.pkg.json", "sse4_2")
+        update_config("src/moon.pkg.json", "sse4_2")
     else:
-        update_config("moon.pkg.json", "scalar")
+        update_config("src/moon.pkg.json", "scalar")
 
 if __name__ == "__main__":
     main()

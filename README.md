@@ -11,7 +11,7 @@
 | Time (μs)  | 684.69      | 74.88     | 10.16      | 8.24       |
 | Throughput | 0.54 GB/s   | 4.98 GB/s | 36.68 GB/s | 45.21 GB/s |
 
-*Test environment: AMD Ryzen 7 3750H, Moonbit v0.8, native backend*  
+*Test environment: AMD Ryzen 7 3750H, Moonbit native backend*  
 *Run benchmark:*
 
 ```shell

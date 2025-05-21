@@ -18,19 +18,22 @@ add_library(avx2 STATIC)
 target_link_libraries(avx2 rt)
 target_include_directories(avx2 PRIVATE avx2/)
 target_sources(avx2 PRIVATE avx2/contains_char.c)
+target_sources(avx2 PRIVATE avx2/has_prefix.c)
 
 add_library(sse4_2 STATIC)
 target_link_libraries(sse4_2 rt)
 target_include_directories(sse4_2 PRIVATE sse4_2/)
 target_sources(sse4_2 PRIVATE sse4_2/contains_char.c)
+target_sources(sse4_2 PRIVATE sse4_2/has_prefix.c)
 
 add_library(scalar STATIC)
 target_link_libraries(scalar rt)
 target_include_directories(scalar PRIVATE sse/)
 target_sources(scalar PRIVATE scalar/contains_char.c)
+target_sources(scalar PRIVATE scalar/has_prefix.c)
 
-#add_executable(main target/native/release/build/main/main.c)
-#target_link_libraries(main rt avx2 sse4_2 m)
+add_executable(main target/native/release/build/bench/starts_with/starts_with.c)
+target_link_libraries(main rt avx2 sse4_2 m)
 
 #find_package(benchmark CONFIG REQUIRED)
 #

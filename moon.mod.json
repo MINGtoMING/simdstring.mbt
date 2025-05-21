@@ -1,6 +1,6 @@
 {
   "name": "MINGtoMING/simdstring",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "deps": {
     "kesmeey/fmt": "0.1.9"
   },
@@ -16,6 +16,6 @@
   ],
   "description": "SIMD-accelerated string utilities for Moonbit native backend",
   "scripts": {
-    "postadd": "python ./.mooncakes/MINGtoMING/simdstring/scripts/configure.py"
+    "postadd": "python scripts/configure.py"
   }
 }

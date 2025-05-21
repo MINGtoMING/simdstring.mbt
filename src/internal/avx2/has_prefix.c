@@ -22,8 +22,8 @@ avx2_export int32_t avx2_has_prefix(const moonbit_view_t haystack, const moonbit
     if (unlikely(haystack_len < needle_len))
         return false;
 
-    const uint16_t *haystack_data = haystack.buf + haystack.start;
-    const uint16_t *needle_data = needle.buf + needle.start;
+    const uint16_t *haystack_data = (uint16_t *)haystack.buf + haystack.start;
+    const uint16_t *needle_data = (uint16_t *)needle.buf + needle.start;
     int32_t pos = 0;
 
     for (; pos <= needle_len - 64; pos += 64)

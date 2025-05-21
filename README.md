@@ -47,10 +47,8 @@ Then include in your `moon.pkg.json`:
 | `find`          | ⏳    | ⏳      | ⏳      |
 | `has_prefix`    | ✅    | ✅      | ✅      |
 | `has_suffix`    | ✅    | ✅      | ✅      |
-| `to_upper`      | ⏳    | ⏳      | ⏳      |
-| `to_lower`      | ⏳    | ⏳      | ⏳      |
 
-*✅(Implemented)  ⏳(Planned)*
+Note: *✅(Implemented)  ⏳(Planned)*
 
 ## 📜 License
 

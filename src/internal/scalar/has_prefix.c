@@ -7,8 +7,8 @@ scalar_export int32_t scalar_has_prefix(const moonbit_view_t haystack, const moo
     if (unlikely(haystack_len < needle_len))
         return false;
 
-    const uint16_t *haystack_data = haystack.buf + haystack.start;
-    const uint16_t *needle_data = needle.buf + needle.start;
+    const uint16_t *haystack_data = (uint16_t *)haystack.buf + haystack.start;
+    const uint16_t *needle_data = (uint16_t *)needle.buf + needle.start;
     for (int32_t pos = 0; pos < needle_len; ++pos)
         if (*haystack_data++ != *needle_data++)
             return false;

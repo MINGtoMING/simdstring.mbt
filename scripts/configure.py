@@ -73,11 +73,11 @@ def update_config(config_path: str, instruction: str):
 def main():
     instruction_list = get_intruction_list()
     if "avx2" in instruction_list:
-        update_config("./moon.pkg.json", "avx2")
+        update_config("./.mooncakes/MINGtoMING/simdstring/moon.pkg.json", "avx2")
     elif "sse4_2" in instruction_list:
-        update_config("./moon.pkg.json", "sse4_2")
+        update_config("./.mooncakes/MINGtoMING/simdstring/moon.pkg.json", "sse4_2")
     else:
-        update_config("./moon.pkg.json", "scalar")
+        update_config("./.mooncakes/MINGtoMING/simdstring/moon.pkg.json", "scalar")
 
 
 if __name__ == "__main__":

@@ -16,6 +16,6 @@
   ],
   "description": "SIMD-accelerated string utilities for Moonbit native backend",
   "scripts": {
-    "postadd": "python ./scripts/configure.py"
+    "postadd": "python ./.mooncakes/MINGtoMING/simdstring/scripts/configure.py"
   }
 }

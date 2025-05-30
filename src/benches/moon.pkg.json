@@ -2,7 +2,7 @@
     "supported-targets": [
         "native"
     ],
-    "native-stub": [
-        "contains_char.c"
+    "import": [
+      "MINGtoMING/simdstring"
     ]
 }

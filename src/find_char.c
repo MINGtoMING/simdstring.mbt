@@ -338,6 +338,69 @@ export int64_t find_char(const struct moonbit_view_t haystack, const int32_t nee
     return INT64_C(0x100000000);
 }
 
+#elif defined(USE_RVV)
+
+vuint16m8_t __riscv_vle16_v_u16m8(const uint16_t *rs1, size_t vl);
+
+vbool2_t __riscv_vmseq_vx_u16m8_b2(vuint16m8_t vs2, uint16_t rs1, size_t vl);
+
+long __riscv_vfirst_m_b2(vbool2_t vs2, size_t vl);
+
+vbool2_t __riscv_vmand_mm_b2(vbool2_t vs2, vbool2_t vs1, size_t vl);
+
+int64_t find_char(const struct moonbit_view_t haystack, const int32_t needle)
+{
+    const int32_t len = haystack.len;
+    if (unlikely(!len))
+        return INT64_C(0x100000000);
+
+    const uint16_t *const start = (uint16_t *)haystack.buf + haystack.start;
+    const uint16_t *const end = start + len;
+    const uint16_t *ptr = start;
+
+    if (likely(needle <= 0xFFFF))
+    {
+        const uint16_t tgt = (uint16_t)needle;
+        while (likely(ptr < end))
+        {
+            const size_t vec_len = __riscv_vsetvl_e16m8(end - ptr);
+            const vuint16m8_t src_blk = __riscv_vle16_v_u16m8(ptr, vec_len);
+            const vbool2_t res_blk = __riscv_vmseq_vx_u16m8_b2(src_blk, tgt, vec_len);
+            const int64_t res_offset = __riscv_vfirst_m_b2(res_blk, vec_len);
+            if (unlikely(res_offset >= 0))
+                return (int32_t)(ptr - start) + res_offset;
+            ptr += vec_len;
+        }
+    }
+    else
+    {
+        if (unlikely(len < 2))
+            return INT64_C(0x100000000);
+
+        const int32_t adjusted = needle - 0x10000;
+        const uint16_t high_tgt = 0xD800 + (adjusted >> 10);
+        const uint16_t low_tgt = 0xDC00 + (adjusted & 0x3FF);
+        while (likely(ptr < end - 1))
+        {
+            const size_t vec_len = __riscv_vsetvl_e16m8(end - 1 - ptr);
+            const vuint16m8_t high_src_blk = __riscv_vle16_v_u16m8(ptr, vec_len);
+            const vbool2_t high_res_mask = __riscv_vmseq_vx_u16m8_b2(high_src_blk, high_tgt, vec_len);
+            if (unlikely(__riscv_vfirst_m_b2(high_res_mask, vec_len) >= 0))
+            {
+                const vuint16m8_t low_src_blk = __riscv_vle16_v_u16m8(ptr + 1, vec_len);
+                const vbool2_t low_res_mask = __riscv_vmseq_vx_u16m8_b2(low_src_blk, low_tgt, vec_len);
+                const vbool2_t res_mask = __riscv_vmand_mm_b2(high_res_mask, low_res_mask, vec_len);
+                const int64_t res_offset = __riscv_vfirst_m_b2(res_mask, vec_len);
+                if (unlikely(res_offset >= 0))
+                    return (int32_t)(ptr - start) + res_offset;
+            }
+            ptr += vec_len;
+        }
+    }
+
+    return INT64_C(0x100000000);
+}
+
 #else
 
 always_inline uint64_t to_bitmask(const uint64_t words)

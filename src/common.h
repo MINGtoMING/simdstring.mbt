@@ -20,6 +20,11 @@
 #include <arm_neon.h>
 #define USE_NEON
 #endif
+#elif defined(__riscv) && __riscv_xlen == 64
+#if defined(__riscv_v)
+#include <riscv_vector.h>
+#define USE_RVV
+#endif
 #endif
 
 #if defined(__GNUC__) || defined(__clang__)

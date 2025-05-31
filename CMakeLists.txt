@@ -10,7 +10,17 @@ add_library(find_char STATIC src/find_char.c)
 target_link_libraries(find_char runtime)
 #target_compile_options(find_char PRIVATE -mavx2)
 #target_compile_options(find_char PRIVATE -mavx512f -mavx512bw)
-target_compile_options(find_char PRIVATE -mno-sse2)
+#target_compile_options(find_char PRIVATE -mno-sse2)
+
+add_library(rev_find_char STATIC src/rev_find_char.c)
+target_link_libraries(rev_find_char runtime)
+#target_compile_options(rev_find_char PRIVATE -mavx2)
+#target_compile_options(rev_find_char PRIVATE -mno-sse2)
+#target_compile_options(rev_find_char PRIVATE -mavx512f -mavx512bw)
+
+add_library(find STATIC src/find.c)
+target_link_libraries(find runtime)
+#target_compile_options(find PRIVATE -mno-sse2)
 
 # add_executable(main target/native/release/build/main/main.c)
 # target_link_libraries(main runtime contains_char m)

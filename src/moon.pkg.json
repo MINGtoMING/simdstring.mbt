@@ -3,6 +3,7 @@
         "native"
     ],
     "native-stub": [
-        "find_char.c"
+        "find_char.c",
+        "rev_find_char.c"
     ]
 }

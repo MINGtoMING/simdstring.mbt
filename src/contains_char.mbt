@@ -1,5 +1,7 @@
 ///|
-pub extern "c" fn contains_char(haystack : @string.View, needle : Char) -> Bool = "contains_char"
+pub fn contains_char(haystack : @string.View, needle : Char) -> Bool {
+  find_char(haystack, needle) is Some(_)
+}
 
 ///|
 test "contains_char/basic" {
@@ -72,7 +74,7 @@ test "contains_char/fuzz" {
     let gen_char = fn() {
       loop rand.uint(limit=0x10FFFF) {
         0..=0xD7FF | 0xE000..=0x10FFFF as cp =>
-          cp.reinterpret_as_int().to_char().unwrap()
+          break cp.reinterpret_as_int().to_char().unwrap()
         _ => continue rand.uint(limit=0x10FFFF)
       }
     }

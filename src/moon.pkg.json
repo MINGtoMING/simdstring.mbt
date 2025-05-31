@@ -3,6 +3,6 @@
         "native"
     ],
     "native-stub": [
-        "contains_char.c"
+        "find_char.c"
     ]
 }

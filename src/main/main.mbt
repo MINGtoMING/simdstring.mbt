@@ -1,10 +1,13 @@
 ///|
 fn main {
-  let str = "z".repeat(10000) + "😀"
+  let str = "😁".repeat(10043) + "😀"
+  // println(str.find("😀"))
+  // println(@simdstring.find_char(str, 'a'))
   try {
     let it = @bench.new()
-    it.bench(fn() { it.keep(str.contains_char('😀')) })
-    it.bench(fn() { it.keep(@simdstring.contains_char(str, '😀')) })
+    // it.bench(fn() { it.keep(str.find("😀")) })
+    it.bench(fn() { it.keep(@simdstring.find_char(str, '😀')) })
+    it.bench(fn() { it.keep(@simdstring.find_char(str, 'a')) })
     match @json.parse(it.dump_summaries()) {
       [{ "mean": Number(mean1), .. }, { "mean": Number(mean2), .. }, ..] =>
         println("mean1: \{mean1}  mean2: \{mean2}")
@@ -13,4 +16,9 @@ fn main {
   } catch {
     e => println(e)
   }
+
+  // let mut x : Int? = None
+  // println(x)
+  // x = Some(-1)
+  // println(x)
 }
